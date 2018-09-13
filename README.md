@@ -12,6 +12,10 @@
 # TO DO
 
 - WIP: Bash customizations
+- SCM:
+    - Git
+        - global ignore list
+    - SourceTree
 - IntelliJ 
     - sync up plugins:
         - Python
