@@ -2,6 +2,11 @@ from invoke import task
 
 
 @task
+def code(ctx):
+    ctx.run('mkdir -p ~/code')
+
+
+@task
 def scm(ctx):
     ctx.run('brew install git || brew upgrade git')
     ctx.run('brew cask install sourcetree')
@@ -9,8 +14,9 @@ def scm(ctx):
 
 @task
 def dotfiles(ctx):
-    pass
+    ctx.run('git clone git@github.com:pgpbpadilla/dotfiles.git ~/code/dotfiles.git')
 
-@task(pre=[scm])
+
+@task(pre=[code, scm, dotfiles])
 def all(ctx):
     pass
